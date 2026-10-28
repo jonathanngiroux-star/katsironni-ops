@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.log
+node_modules/
+.venv/
+hub/katsironni-hub
+hub/parsecheck/parsecheck
+hub/rendercheck/rendercheck

@@ -1,0 +1,21 @@
+[Unit]
+Description=Warmline Watch (hosted warmline)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=katsironni
+Group=katsironni
+WorkingDirectory=/opt/katsironni/services/warmline
+ExecStart=/opt/katsironni/bin/warmline serve -http 127.0.0.1:8103 -db /opt/katsironni/services/warmline/data/warmline.db
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/katsironni/services/warmline/data
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

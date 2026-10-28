@@ -1,0 +1,174 @@
+{{define "title"}}Crypto Checkout - {{.Product.Name}}{{end}}
+
+{{define "content"}}
+<section class="crypto-checkout">
+    <div class="container">
+        <header class="checkout-header">
+            <h1>Pay with Crypto</h1>
+            <p>{{.Product.Name}} — {{.Interval}} plan</p>
+        </header>
+
+        <div class="checkout-content">
+            <div class="checkout-main">
+                <div class="amount-summary">
+                    <h2>Amount Due</h2>
+                    <div class="amount-large">
+                        {{if eq .Interval "year"}}${{cad .Product.AnnualCents}} CAD{{else if eq .Interval "onetime"}}${{cad .Product.OnetimeCents}} CAD{{else}}${{cad .Product.MonthlyCents}} CAD{{end}}
+                    </div>
+                    <p class="amount-period">{{if eq .Interval "onetime"}}one-time — permanent access{{else}}per {{.Interval}}{{end}}</p>
+                </div>
+
+                <div class="chain-selector">
+                    <h3>Select Blockchain</h3>
+                    <div class="chain-options">
+                        {{range .Chains}}
+                        <button type="button" class="chain-option" data-chain="{{.Key}}" data-rate-id="{{.RateID}}">
+                            <span class="chain-name">{{.Name}}</span>
+                            <span class="chain-asset">{{.Asset}}</span>
+                        </button>
+                        {{end}}
+                    </div>
+                </div>
+
+                <div class="payment-details" id="payment-details" style="display:none;">
+                    <h3>Send to Address</h3>
+                    <div class="address-display">
+                        <code id="payment-address">—</code>
+                        <button type="button" class="btn btn-sm btn-copy" onclick="copyAddress()">Copy</button>
+                    </div>
+
+                    <div class="amount-crypto">
+                        <label>Amount to Send ({{.SelectedAsset}})</label>
+                        <div class="amount-input-group">
+                            <input type="text" id="crypto-amount" readonly>
+                            <span id="asset-label">—</span>
+                        </div>
+                        <p class="amount-note">Amount shown includes 2% tolerance buffer. Rate updates every 5 minutes.</p>
+                    </div>
+
+                    <div class="tx-submit">
+                        <label for="txhash">Transaction Hash</label>
+                        <input type="text" id="txhash" placeholder="Paste transaction hash here">
+                        <button type="button" class="btn btn-primary" onclick="submitTx()">Submit for Verification</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout-sidebar">
+                <div class="verification-status" id="verification-status" style="display:none;">
+                    <h3>Verification Status</h3>
+                    <div class="status-indicator status-pending">
+                        <span class="spinner"></span>
+                        <span>Pending verification...</span>
+                    </div>
+                    <p class="status-detail" id="status-detail">Checking transaction on-chain...</p>
+                </div>
+
+                <div class="help-box">
+                    <h4>How it works</h4>
+                    <ol>
+                        <li>Select your preferred blockchain</li>
+                        <li>Send the exact crypto amount to the address shown</li>
+                        <li>Paste the transaction hash here</li>
+                        <li>We verify on-chain (confirmations vary by chain)</li>
+                        <li>Subscription activates automatically</li>
+                    </ol>
+                    <p class="note"><strong>Note:</strong> We only verify — we never hold keys or custody funds.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{end}}
+
+{{define "scripts"}}
+<script>
+let selectedChain = null;
+let rateCache = {};
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.chain-option').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.chain-option').forEach(b => b.classList.remove('selected'));
+            this.classList.add('selected');
+            selectedChain = this.dataset.chain;
+            loadChainDetails(this.dataset.chain, this.dataset.rateId);
+        });
+    });
+});
+
+async function loadChainDetails(chainKey, rateId) {
+    try {
+        const res = await fetch('/api/crypto/quote?chain=' + chainKey + '&service={{.Product.Key}}&interval={{.Interval}}');
+        const data = await res.json();
+        
+        document.getElementById('payment-address').textContent = data.address;
+        document.getElementById('asset-label').textContent = data.asset;
+        document.getElementById('crypto-amount').value = data.amount;
+        document.getElementById('payment-details').style.display = 'block';
+        
+        selectedChain = chainKey;
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+async function submitTx() {
+    const txhash = document.getElementById('txhash').value.trim();
+    if (!txhash || !selectedChain) return;
+    
+    document.getElementById('verification-status').style.display = 'block';
+    document.getElementById('status-detail').textContent = 'Submitting for verification...';
+    
+    try {
+        const res = await fetch('/api/crypto/submit', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                chain: selectedChain,
+                txhash: txhash,
+                service: '{{.Product.Key}}',
+                interval: '{{.Interval}}'
+            })
+        });
+        const data = await res.json();
+        
+        if (data.payment_id) {
+            pollStatus(data.payment_id);
+        } else {
+            document.getElementById('status-detail').textContent = 'Error: ' + (data.error || 'Unknown error');
+        }
+    } catch (e) {
+        document.getElementById('status-detail').textContent = 'Error: ' + e.message;
+    }
+}
+
+async function pollStatus(paymentId) {
+    try {
+        const res = await fetch('/api/crypto/status/' + paymentId);
+        const data = await res.json();
+        
+        if (data.status === 'verified') {
+            document.getElementById('status-detail').innerHTML = '<strong>Verified!</strong> Subscription activated. <a href="/account">View account</a>';
+            document.querySelector('.status-indicator').className = 'status-indicator status-verified';
+        } else if (data.status === 'rejected') {
+            document.getElementById('status-detail').textContent = 'Rejected: ' + (data.error || 'Verification failed');
+            document.querySelector('.status-indicator').className = 'status-indicator status-rejected';
+        } else {
+            document.getElementById('status-detail').textContent = 'Pending... (' + (data.confirmations || 0) + '/' + data.required_confirmations + ' confirmations)';
+            setTimeout(() => pollStatus(paymentId), 30000);
+        }
+    } catch (e) {
+        setTimeout(() => pollStatus(paymentId), 30000);
+    }
+}
+
+function copyAddress() {
+    const addr = document.getElementById('payment-address').textContent;
+    navigator.clipboard.writeText(addr);
+    const btn = document.querySelector('.btn-copy');
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy', 2000);
+}
+</script>
+{{end}}

@@ -1,0 +1,131 @@
+# katsironni.com — Caddyfile (final, overnight build)
+# Hub serves: marketing, product pages, checkout, account, admin.
+# 4 Go services gated via forward_auth; walletrisk + airdropintel statics served by
+# Caddy directly, same gating. Auth check: hub /api/auth/check (200 = allowed, 401 = denied).
+
+{
+	email hello@katsironni.com
+}
+
+katsironni.com, www.katsironni.com {
+	encode gzip
+	reverse_proxy 127.0.0.1:8080
+}
+
+(gated) {
+	forward_auth 127.0.0.1:8080 {
+		uri /api/auth/check?service={args[0]}
+		copy_headers X-User-Email
+	}
+	reverse_proxy 127.0.0.1:{args[1]}
+}
+
+(gated-static) {
+	forward_auth 127.0.0.1:8080 {
+		uri /api/auth/check?service={args[0]}
+	}
+	root * {args[1]}
+	file_server
+	encode gzip
+}
+
+proofspan.katsironni.com {
+	import gated proofspan 8101
+}
+
+switchyard.katsironni.com {
+	import gated switchyard 8102
+}
+
+warmline.katsironni.com {
+	import gated warmline 8103
+}
+
+oneprobe.katsironni.com {
+	import gated oneprobe 8104
+}
+
+walletrisk.katsironni.com {
+	import gated-static walletrisk /opt/katsironni/web/walletrisk
+}
+
+airdropintel.katsironni.com {
+	import gated-static airdropintel /opt/katsironni/web/airdropintel
+}
+
+# ---- V2 agent-chat service pages (hub renders host-dispatched pages) ----
+(chat-service) {
+	encode gzip
+	reverse_proxy 127.0.0.1:8080
+}
+
+agentops.katsironni.com {
+	import chat-service
+}
+contractaudit.katsironni.com {
+	import chat-service
+}
+walletguard.katsironni.com {
+	import chat-service
+}
+nodeops.katsironni.com {
+	import chat-service
+}
+complianceflow.katsironni.com {
+	import chat-service
+}
+taxfile.katsironni.com {
+	import chat-service
+}
+mcpretainer.katsironni.com {
+	import chat-service
+}
+agentbench.katsironni.com {
+	import chat-service
+}
+tokenomics.katsironni.com {
+	import chat-service
+}
+whitepaper.katsironni.com {
+	import chat-service
+}
+techdocs.katsironni.com {
+	import chat-service
+}
+regresearch.katsironni.com {
+	import chat-service
+}
+datasetcur.katsironni.com {
+	import chat-service
+}
+finetune.katsironni.com {
+	import chat-service
+}
+daogov.katsironni.com {
+	import chat-service
+}
+tokenlaunch.katsironni.com {
+	import chat-service
+}
+meshops.katsironni.com {
+	import chat-service
+}
+keymgmt.katsironni.com {
+	import chat-service
+}
+emailops.katsironni.com {
+	import chat-service
+}
+flagstrategy.katsironni.com {
+	import chat-service
+}
+airdroppremium.katsironni.com {
+	import chat-service
+}
+vpsops.katsironni.com {
+	import chat-service
+}
+
+mirofish.katsironni.com {
+	import chat-service
+}

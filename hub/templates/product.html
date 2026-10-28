@@ -1,0 +1,96 @@
+{{define "title"}}{{.Product.Name}}{{end}}
+
+{{define "content"}}
+<section class="product-detail">
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a> / <a href="/pricing">Pricing</a> / {{.Product.Name}}
+        </nav>
+
+        <div class="product-main">
+            <div class="product-info">
+                <h1>{{.Product.Name}}</h1>
+                <p class="product-key">{{.Product.Key}}</p>
+
+                <div class="pricing-options">
+                    <div class="price-card {{if eq .Interval "month"}}selected{{end}}" data-interval="month">
+                        <div class="price-header">
+                            <span class="price-label">Monthly</span>
+                            <span class="price-amount">${{cad .Product.MonthlyCents}}<span class="price-period">/mo</span></span>
+                        </div>
+                        <ul class="price-features">
+                            <li>Full access to {{.Product.Name}}</li>
+                            <li>Cancel anytime</li>
+                        </ul>
+                    </div>
+                    <div class="price-card {{if eq .Interval "year"}}selected{{end}}" data-interval="year">
+                        <div class="price-header">
+                            <span class="price-label">Annual (2 months free)</span>
+                            <span class="price-amount">${{cad .Product.AnnualCents}}<span class="price-period">/yr</span></span>
+                        </div>
+                        <ul class="price-features">
+                            <li>Full access to {{.Product.Name}}</li>
+                            <li>2 months free</li>
+                        </ul>
+                    </div>
+                    {{if .Product.OnetimeCents}}
+                    <div class="price-card {{if eq .Interval "onetime"}}selected{{end}}" data-interval="onetime">
+                        <div class="price-header">
+                            <span class="price-label">One-time purchase</span>
+                            <span class="price-amount">${{cad .Product.OnetimeCents}}<span class="price-period"> once</span></span>
+                        </div>
+                        <ul class="price-features">
+                            <li>Permanent access, no expiry</li>
+                            <li>Best for one-shot needs — no ongoing updates</li>
+                        </ul>
+                    </div>
+                    {{end}}
+                </div>
+
+                <form action="/checkout/stripe/{{.Product.Key}}/{{.Interval}}" method="GET" class="checkout-form">
+                    <input type="hidden" name="interval" value="{{.Interval}}">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Checkout with Card</button>
+                </form>
+
+                <p class="divider">or</p>
+
+                <a href="/checkout/crypto/{{.Product.Key}}/{{.Interval}}" class="btn btn-secondary btn-lg btn-block">Pay with Crypto</a>
+            </div>
+
+            <div class="product-description">
+                <h3>About {{.Product.Name}}</h3>
+                <p>{{.Product.Description | default "Managed hosting" | safeHTML}}</p>
+
+                <h4>Available Chains for Crypto Payment</h4>
+                <div class="chain-list">
+                    {{range .Chains}}
+                    <span class="chain-badge" data-chain="{{.Key}}">{{.Name}} ({{.Asset}})</span>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{end}}
+
+{{define "scripts"}}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.price-card').forEach(card => {
+        card.addEventListener('click', function() {
+            document.querySelectorAll('.price-card').forEach(c => c.classList.remove('selected'));
+            this.classList.add('selected');
+            const interval = this.dataset.interval;
+            const form = document.querySelector('.checkout-form');
+            if (form) {
+                form.action = '/checkout/stripe/{{.Product.Key}}/' + interval;
+            }
+            const cryptoLink = document.querySelector('.btn-secondary');
+            if (cryptoLink) {
+                cryptoLink.href = '/checkout/crypto/{{.Product.Key}}/' + interval;
+            }
+        });
+    });
+});
+</script>
+{{end}}

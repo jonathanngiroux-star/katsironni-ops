@@ -1,0 +1,156 @@
+{
+  "account_id": "acct_1UTjkv1DZgaA6oBE",
+  "livemode": true,
+  "currency": "cad",
+  "products": [
+    {
+      "key": "proofspan",
+      "name": "Proofspan Cloud",
+      "id": "prod_VVQZCb7i8wKB0S"
+    },
+    {
+      "key": "switchyard",
+      "name": "Switchyard Cloud",
+      "id": "prod_VVQZ9Ma115g2y0"
+    },
+    {
+      "key": "warmline",
+      "name": "Warmline Watch",
+      "id": "prod_VVQZb1GUQaA9TO"
+    },
+    {
+      "key": "oneprobe",
+      "name": "Oneprobe Hosted",
+      "id": "prod_VVQZiHDAw1auLF"
+    },
+    {
+      "key": "walletrisk",
+      "name": "WalletRisk Pro",
+      "id": "prod_VVQZHXLTBFwKLm"
+    },
+    {
+      "key": "airdropintel",
+      "name": "AirdropIntel Early Access",
+      "id": "prod_VVQZ10ohWO9BRg"
+    },
+    {
+      "key": "bundle",
+      "name": "Katsironni Complete",
+      "id": "prod_VVQZzYYkyC4fMC"
+    }
+  ],
+  "prices": [
+    {
+      "key": "proofspan",
+      "interval": "month",
+      "unit_amount": 1900,
+      "currency": "cad",
+      "id": "price_1UUPhv1DZgaA6oBEgoqOdt8H",
+      "product_id": "prod_VVQZCb7i8wKB0S"
+    },
+    {
+      "key": "proofspan",
+      "interval": "year",
+      "unit_amount": 19000,
+      "currency": "cad",
+      "id": "price_1UUPhv1DZgaA6oBE04aQrTJE",
+      "product_id": "prod_VVQZCb7i8wKB0S"
+    },
+    {
+      "key": "switchyard",
+      "interval": "month",
+      "unit_amount": 2900,
+      "currency": "cad",
+      "id": "price_1UUPhv1DZgaA6oBE5RBBKbup",
+      "product_id": "prod_VVQZ9Ma115g2y0"
+    },
+    {
+      "key": "switchyard",
+      "interval": "year",
+      "unit_amount": 29000,
+      "currency": "cad",
+      "id": "price_1UUPhv1DZgaA6oBEgzCDwzna",
+      "product_id": "prod_VVQZ9Ma115g2y0"
+    },
+    {
+      "key": "warmline",
+      "interval": "month",
+      "unit_amount": 1500,
+      "currency": "cad",
+      "id": "price_1UUPhw1DZgaA6oBEkx73FD3U",
+      "product_id": "prod_VVQZb1GUQaA9TO"
+    },
+    {
+      "key": "warmline",
+      "interval": "year",
+      "unit_amount": 15000,
+      "currency": "cad",
+      "id": "price_1UUPhw1DZgaA6oBEXEdKLQiN",
+      "product_id": "prod_VVQZb1GUQaA9TO"
+    },
+    {
+      "key": "oneprobe",
+      "interval": "month",
+      "unit_amount": 1200,
+      "currency": "cad",
+      "id": "price_1UUPhw1DZgaA6oBEaSPNh8Pe",
+      "product_id": "prod_VVQZiHDAw1auLF"
+    },
+    {
+      "key": "oneprobe",
+      "interval": "year",
+      "unit_amount": 12000,
+      "currency": "cad",
+      "id": "price_1UUPhw1DZgaA6oBEU8KwEMaL",
+      "product_id": "prod_VVQZiHDAw1auLF"
+    },
+    {
+      "key": "walletrisk",
+      "interval": "month",
+      "unit_amount": 900,
+      "currency": "cad",
+      "id": "price_1UUPhw1DZgaA6oBEGvsf9NN2",
+      "product_id": "prod_VVQZHXLTBFwKLm"
+    },
+    {
+      "key": "walletrisk",
+      "interval": "year",
+      "unit_amount": 8900,
+      "currency": "cad",
+      "id": "price_1UUPhw1DZgaA6oBEuU8JqIrE",
+      "product_id": "prod_VVQZHXLTBFwKLm"
+    },
+    {
+      "key": "airdropintel",
+      "interval": "month",
+      "unit_amount": 1000,
+      "currency": "cad",
+      "id": "price_1UUPhx1DZgaA6oBEDukmCpdk",
+      "product_id": "prod_VVQZ10ohWO9BRg"
+    },
+    {
+      "key": "airdropintel",
+      "interval": "year",
+      "unit_amount": 10000,
+      "currency": "cad",
+      "id": "price_1UUPhx1DZgaA6oBEUjq2qrWz",
+      "product_id": "prod_VVQZ10ohWO9BRg"
+    },
+    {
+      "key": "bundle",
+      "interval": "month",
+      "unit_amount": 5900,
+      "currency": "cad",
+      "id": "price_1UUPhx1DZgaA6oBEpci62Zl2",
+      "product_id": "prod_VVQZzYYkyC4fMC"
+    },
+    {
+      "key": "bundle",
+      "interval": "year",
+      "unit_amount": 59000,
+      "currency": "cad",
+      "id": "price_1UUPhx1DZgaA6oBE1811fZgx",
+      "product_id": "prod_VVQZzYYkyC4fMC"
+    }
+  ]
+}

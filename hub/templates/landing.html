@@ -1,0 +1,67 @@
+{{define "title"}}Home{{end}}
+
+{{define "content"}}
+<section class="hero">
+    <div class="container">
+        <h1>Managed Infrastructure for Developer Tools</h1>
+        <p class="subtitle">Self-hosted repos free forever. Managed hosting on katsironni.com — no ops burden, just productivity.</p>
+        <div class="hero-cta">
+            <a href="/pricing" class="btn btn-primary btn-lg">View All Products</a>
+            <a href="/signup" class="btn btn-secondary btn-lg">Start Free Trial</a>
+        </div>
+    </div>
+</section>
+
+<section class="products">
+    <div class="container">
+        <h2>Our Products</h2>
+        <div class="product-grid">
+            {{range .Products}}
+            <article class="product-card">
+                <span class="card-icon">{{if index $.ServiceIcons .Key}}{{index $.ServiceIcons .Key}}{{else}}🧩{{end}}</span>
+                <div class="product-header">
+                    <h3>{{.Name}}</h3>
+                    <span class="product-key">{{.Key}}</span>
+                </div>
+                <p class="card-desc">{{.Description}}</p>
+                <div class="product-pricing">
+                    <div class="price-option">
+                        <span class="price-label">From</span>
+                        <span class="price-value price-from">${{cad .MonthlyCents}}/mo</span>
+                    </div>
+                    <div class="price-option">
+                        <span class="price-label">Annual</span>
+                        <span class="price-value">${{cad .AnnualCents}}</span>
+                    </div>
+                </div>
+                <a href="/p/{{.Key}}" class="btn btn-outline">Learn More</a>
+            </article>
+            {{end}}
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2>Why Katsironni?</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <h4>Self-Hosted Free Forever</h4>
+                <p>All repos stay free to self-host. You only pay for managed hosting.</p>
+            </div>
+            <div class="feature">
+                <h4>Card + Crypto Payments</h4>
+                <p>Pay with Stripe or crypto (BTC, ETH, SOL, TRX, XLM + EVM chains).</p>
+            </div>
+            <div class="feature">
+                <h4>Bundle & Save</h4>
+                <p>Get all 6 services for ~37% off with Katsironni Complete.</p>
+            </div>
+            <div class="feature">
+                <h4>Open Source Core</h4>
+                <p>Built on open source. No vendor lock-in.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{{end}}

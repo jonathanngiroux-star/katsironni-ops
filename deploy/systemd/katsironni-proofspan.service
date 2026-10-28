@@ -1,0 +1,21 @@
+[Unit]
+Description=Proofspan Cloud (hosted proofspan)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=katsironni
+Group=katsironni
+WorkingDirectory=/opt/katsironni/services/proofspan
+ExecStart=/opt/katsironni/bin/proofspan serve -addr 127.0.0.1:8101 -db /opt/katsironni/services/proofspan/data/proofspan.sqlite
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/katsironni/services/proofspan/data
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

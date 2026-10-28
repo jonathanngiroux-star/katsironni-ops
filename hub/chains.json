@@ -1,0 +1,152 @@
+{
+  "chains": [
+    {
+      "key": "ethereum",
+      "name": "Ethereum",
+      "asset": "ETH",
+      "rpc_url": "https://ethereum.publicnode.com",
+      "verify_method": "evm",
+      "confirmations": 5,
+      "address": "0x85ee7E71f762d772599cbF1EC20E651B30657521",
+      "enabled": true,
+      "rate_id": "ethereum"
+    },
+    {
+      "key": "linea",
+      "name": "Linea",
+      "asset": "ETH",
+      "rpc_url": "https://rpc.linea.build",
+      "verify_method": "evm",
+      "confirmations": 5,
+      "address": "0x85ee7E71f762d772599cbF1EC20E651B30657521",
+      "enabled": true,
+      "rate_id": "ethereum"
+    },
+    {
+      "key": "base",
+      "name": "Base",
+      "asset": "ETH",
+      "rpc_url": "https://base.publicnode.com",
+      "verify_method": "evm",
+      "confirmations": 5,
+      "address": "0x85ee7E71f762d772599cbF1EC20E651B30657521",
+      "enabled": true,
+      "rate_id": "ethereum"
+    },
+    {
+      "key": "bnb",
+      "name": "BNB Chain",
+      "asset": "BNB",
+      "rpc_url": "https://bsc.publicnode.com",
+      "verify_method": "evm",
+      "confirmations": 5,
+      "address": "0x85ee7E71f762d772599cbF1EC20E651B30657521",
+      "enabled": true,
+      "rate_id": "binancecoin"
+    },
+    {
+      "key": "polygon",
+      "name": "Polygon",
+      "asset": "MATIC",
+      "rpc_url": "https://polygon.publicnode.com",
+      "verify_method": "evm",
+      "confirmations": 5,
+      "address": "0x85ee7E71f762d772599cbF1EC20E651B30657521",
+      "enabled": true,
+      "rate_id": "matic-network"
+    },
+    {
+      "key": "monad",
+      "name": "Monad Testnet",
+      "asset": "MON",
+      "rpc_url": "https://testnet-rpc.monad.xyz",
+      "verify_method": "evm",
+      "confirmations": 5,
+      "address": "0x85ee7E71f762d772599cbF1EC20E651B30657521",
+      "enabled": false,
+      "rate_id": ""
+    },
+    {
+      "key": "optimism",
+      "name": "Optimism",
+      "asset": "ETH",
+      "rpc_url": "https://optimism.publicnode.com",
+      "verify_method": "evm",
+      "confirmations": 5,
+      "address": "0x85ee7E71f762d772599cbF1EC20E651B30657521",
+      "enabled": true,
+      "rate_id": "ethereum"
+    },
+    {
+      "key": "arbitrum",
+      "name": "Arbitrum",
+      "asset": "ETH",
+      "rpc_url": "https://arbitrum.publicnode.com",
+      "verify_method": "evm",
+      "confirmations": 5,
+      "address": "0x85ee7E71f762d772599cbF1EC20E651B30657521",
+      "enabled": true,
+      "rate_id": "ethereum"
+    },
+    {
+      "key": "arc",
+      "name": "Arc",
+      "asset": "ETH",
+      "rpc_url": "",
+      "verify_method": "evm",
+      "confirmations": 5,
+      "address": "0x85ee7E71f762d772599cbF1EC20E651B30657521",
+      "enabled": false,
+      "rate_id": ""
+    },
+    {
+      "key": "btc",
+      "name": "Bitcoin",
+      "asset": "BTC",
+      "rpc_url": "https://mempool.space/api",
+      "verify_method": "btc",
+      "confirmations": 2,
+      "address": "bc1qxe2zx5tv3hdreaej6s2x4p7han85uey828rrhg",
+      "enabled": true,
+      "rate_id": "bitcoin"
+    },
+    {
+      "key": "solana",
+      "name": "Solana",
+      "asset": "SOL",
+      "rpc_url": "https://api.mainnet-beta.solana.com",
+      "verify_method": "solana",
+      "confirmations": 1,
+      "address": "4afnnpah1KYUF5T6mCfkdSo9guWcLQGvoEDnpqNZzfTw",
+      "enabled": true,
+      "rate_id": "solana"
+    },
+    {
+      "key": "tron",
+      "name": "Tron",
+      "asset": "TRX",
+      "rpc_url": "https://apilist.tronscanapi.com/api",
+      "verify_method": "tron",
+      "confirmations": 20,
+      "address": "TCJMp9eMGDzSM8bDCPB7QDz3KxqiuvBrW9",
+      "enabled": true,
+      "rate_id": "tron"
+    },
+    {
+      "key": "stellar",
+      "name": "Stellar",
+      "asset": "XLM",
+      "rpc_url": "https://horizon.stellar.org",
+      "verify_method": "stellar",
+      "confirmations": 1,
+      "address": "GDKGPEO7CC46IRV7EUUWMITA3VA4447OZTFLGXDVXEZPV7VB3F5M7VA4",
+      "enabled": true,
+      "rate_id": "stellar"
+    }
+  ],
+  "rate_cache_ttl_seconds": 300,
+  "amount_tolerance": 0.98,
+  "submission_window_hours": 48,
+  "retry_interval_minutes": 10,
+  "max_retry_hours": 48
+}

@@ -1,0 +1,154 @@
+{{define "title"}}Admin Dashboard{{end}}
+
+{{define "content"}}
+<section class="admin-dashboard">
+    <div class="container">
+        <header class="admin-header">
+            <h1>Admin Dashboard</h1>
+            <a href="/" class="btn btn-secondary">← Back to Site</a>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>{{.UserCount}}</h3>
+                <p>Total Users</p>
+            </div>
+            <div class="stat-card">
+                <h3>{{.ActiveSubs}}</h3>
+                <p>Active Subscriptions</p>
+            </div>
+            <div class="stat-card">
+                <h3>{{.PendingPayments}}</h3>
+                <p>Pending Crypto Payments</p>
+            </div>
+        </div>
+
+        <div class="admin-tabs">
+            <nav class="tab-nav">
+                <button class="tab-btn active" data-tab="users">Users</button>
+                <button class="tab-btn" data-tab="entitlements">Entitlements</button>
+                <button class="tab-btn" data-tab="payments">Crypto Payments</button>
+            </nav>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="users-tab">
+                    <table class="admin-table" id="users-table">
+                        <thead>
+                            <tr><th>ID</th><th>Email</th><th>Verified</th><th>Admin</th><th>Created</th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <div class="tab-pane" id="entitlements-tab">
+                    <table class="admin-table" id="entitlements-table">
+                        <thead>
+                            <tr><th>ID</th><th>User</th><th>Service</th><th>Source</th><th>Status</th><th>Interval</th><th>Period</th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <div class="tab-pane" id="payments-tab">
+                    <table class="admin-table" id="payments-table">
+                        <thead>
+                            <tr><th>ID</th><th>User</th><th>Service</th><th>Chain</th><th>TX Hash</th><th>CAD</th><th>Status</th><th>Actions</th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{end}}
+
+{{define "scripts"}}
+<script>
+async function loadAdminData() {
+    try {
+        const [users, ents, pays] = await Promise.all([
+            fetch('/admin/users').then(r => r.json()),
+            fetch('/admin/entitlements').then(r => r.json()),
+            fetch('/admin/payments').then(r => r.json())
+        ]);
+        
+        renderUsers(users);
+        renderEntitlements(ents);
+        renderPayments(pays);
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+function renderUsers(users) {
+    const tbody = document.querySelector('#users-table tbody');
+    tbody.innerHTML = users.map(u => `
+        <tr>
+            <td>${u.id}</td>
+            <td>${u.email}</td>
+            <td>${u.email_verified_at ? 'Yes' : 'No'}</td>
+            <td>${u.is_admin ? 'Yes' : 'No'}</td>
+            <td>${u.created_at}</td>
+        </tr>
+    `).join('');
+}
+
+function renderEntitlements(ents) {
+    const tbody = document.querySelector('#entitlements-table tbody');
+    tbody.innerHTML = ents.map(e => `
+        <tr>
+            <td>${e.id}</td>
+            <td>${e.email}</td>
+            <td>${e.service_key}</td>
+            <td>${e.source}</td>
+            <td><span class="status-badge status-${e.status}">${e.status}</span></td>
+            <td>${e.interval}</td>
+            <td>${e.period_start} → ${e.period_end}</td>
+        </tr>
+    `).join('');
+}
+
+function renderPayments(pays) {
+    const tbody = document.querySelector('#payments-table tbody');
+    tbody.innerHTML = pays.map(p => `
+        <tr>
+            <td>${p.id}</td>
+            <td>${p.email}</td>
+            <td>${p.service_key}</td>
+            <td>${p.chain}</td>
+            <td><code>${p.txhash.slice(0,16)}...</code></td>
+            <td>$${(p.expected_cad_cents/100).toFixed(2)}</td>
+            <td><span class="status-badge status-${p.status}">${p.status}</span></td>
+            <td>
+                ${p.status === 'pending' ? `
+                    <button class="btn btn-sm btn-primary" onclick="approvePayment('${p.id}')">Approve</button>
+                    <button class="btn btn-sm btn-danger" onclick="rejectPayment('${p.id}')">Reject</button>
+                ` : ''}
+            </td>
+        </tr>
+    `).join('');
+}
+
+async function approvePayment(id) {
+    await fetch('/admin/crypto/' + id + '/approve', {method: 'POST'});
+    loadAdminData();
+}
+
+async function rejectPayment(id) {
+    await fetch('/admin/crypto/' + id + '/reject', {method: 'POST'});
+    loadAdminData();
+}
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+        document.getElementById(this.dataset.tab + '-tab').classList.add('active');
+    });
+});
+
+loadAdminData();
+</script>
+{{end}}

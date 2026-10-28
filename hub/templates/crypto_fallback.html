@@ -1,0 +1,15 @@
+{{define "title"}}Checkout{{end}}
+{{define "content"}}
+<section class="section">
+    <div class="container">
+        <div class="card" style="max-width:560px;margin:2rem auto;text-align:center">
+            <h2>Card checkout unavailable</h2>
+            <p>Card checkout is temporarily unavailable for this service. You can pay by crypto right now — it activates your subscription automatically once the transaction confirms.</p>
+            <p><strong>{{.ServiceKey}}</strong> ({{.Interval}}ly)</p>
+            <p>{{.Message}}</p>
+            <a class="btn btn-primary" href="/checkout/crypto/{{.ServiceKey}}/{{.Interval}}">Pay with crypto →</a>
+            <p><a href="/pricing">Back to pricing</a></p>
+        </div>
+    </div>
+</section>
+{{end}}

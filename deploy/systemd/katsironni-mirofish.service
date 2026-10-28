@@ -1,0 +1,19 @@
+[Unit]
+Description=MiroFish Market Intelligence backend
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=katsironni
+Group=katsironni
+WorkingDirectory=/opt/katsironni/mirofish/backend
+ExecStart=/opt/katsironni/mirofish/backend/.venv/bin/python run.py
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

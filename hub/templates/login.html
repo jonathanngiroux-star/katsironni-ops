@@ -1,0 +1,43 @@
+{{define "title"}}Login{{end}}
+
+{{define "content"}}
+<section class="auth-page">
+    <div class="container">
+        <div class="auth-card">
+            <h1>Welcome Back</h1>
+            <p class="auth-subtitle">Sign in to your Katsironni account</p>
+
+            {{if .Error}}
+            <div class="alert alert-error">{{.Error}}</div>
+            {{end}}
+            {{if .Notice}}
+            <div class="alert alert-info">{{.Notice}}</div>
+            {{end}}
+
+            <form action="/login" method="POST" class="auth-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required autocomplete="current-password">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In</button>
+            </form>
+
+            {{template "social-buttons"}}
+
+            <p class="auth-footer">
+                Don't have an account? <a href="/signup">Sign Up</a>
+            </p>
+        </div>
+    </div>
+</section>
+{{end}}
+
+{{define "scripts"}}
+<script src="/static/js/siwe.js"></script>
+{{end}}

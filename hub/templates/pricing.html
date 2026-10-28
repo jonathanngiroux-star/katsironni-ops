@@ -1,0 +1,44 @@
+{{define "title"}}Pricing{{end}}
+
+{{define "content"}}
+<section class="pricing">
+    <div class="container">
+        <h1>Simple, Transparent Pricing</h1>
+        <p class="subtitle">All prices in CAD. Annual = 10× monthly (2 months free). Self-hosted versions always free.</p>
+
+        <div class="pricing-table-container">
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Monthly</th>
+                        <th>Annual</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range .Products}}
+                    <tr>
+                        <td>
+                            <strong>{{.Name}}</strong>
+                            <br><small>{{.Key}}</small>
+                        </td>
+                        <td>${{cad .MonthlyCents}}/mo</td>
+                        <td>${{cad .AnnualCents}}/yr</td>
+                        <td>
+                            <a href="/p/{{.Key}}" class="btn btn-sm btn-outline">Select</a>
+                        </td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="bundle-highlight">
+            <h3>🎁 Katsironni Complete Bundle</h3>
+            <p>All 6 services for <strong>${{cad 5900}}/mo</strong> or <strong>${{cad 59000}}/yr</strong> — <em>~37% off</em> à la carte total of $94/mo.</p>
+            <a href="/p/bundle" class="btn btn-primary btn-lg">Get Bundle</a>
+        </div>
+    </div>
+</section>
+{{end}}

@@ -1,0 +1,125 @@
+{{define "title"}}Account{{end}}
+
+{{define "content"}}
+<section class="account-page">
+    <div class="container">
+        <header class="account-header">
+            <h1>Account Dashboard</h1>
+            <a href="/pricing" class="btn btn-secondary">Browse Products</a>
+        </header>
+
+        <section class="account-section">
+            <h2>Active Subscriptions</h2>
+            {{if .Entitlements}}
+            <div class="entitlements-grid">
+                {{range .Entitlements}}
+                <div class="entitlement-card {{.Status}}">
+                    <div class="entitlement-header">
+                        <span class="entitlement-service">{{.ServiceKey}}</span>
+                        <span class="entitlement-status status-{{.Status}}">{{.Status}}</span>
+                    </div>
+                    <div class="entitlement-details">
+                        <p><strong>Source:</strong> {{.Source}}</p>
+                        <p><strong>Interval:</strong> {{.Interval}}</p>
+                        <p><strong>Period:</strong> {{.PeriodStart}} → {{.PeriodEnd}}</p>
+                        {{if .StripeSubscriptionID}}
+                        <p><strong>Stripe Sub:</strong> {{.StripeSubscriptionID}}</p>
+                        {{end}}
+                    </div>
+                </div>
+                {{end}}
+            </div>
+            {{else}}
+            <p class="empty-state">No active subscriptions. <a href="/pricing">Browse products</a> to get started.</p>
+            {{end}}
+        </section>
+
+        <section class="account-section">
+            <h2>Crypto Payment History</h2>
+            {{if .CryptoPayments}}
+            <table class="payments-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Chain</th>
+                        <th>Amount (CAD)</th>
+                        <th>Status</th>
+                        <th>Submitted</th>
+                        <th>Verified</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range .CryptoPayments}}
+                    <tr>
+                        <td>{{.ServiceKey}}</td>
+                        <td>{{.Chain}}</td>
+                        <td>${{cad .ExpectedCADCents}}</td>
+                        <td><span class="status-badge status-{{.Status}}">{{.Status}}</span></td>
+                        <td>{{.SubmittedAt}}</td>
+                        <td>{{if .VerifiedAt}}{{.VerifiedAt}}{{else}}—{{end}}</td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+            {{else}}
+            <p class="empty-state">No crypto payments yet.</p>
+            {{end}}
+        </section>
+        <section class="account-section">
+            <h2>Usage This Month</h2>
+            {{if .ChatUsage}}
+            <table class="payments-table">
+                <thead>
+                    <tr><th>Service</th><th>Messages / runs</th></tr>
+                </thead>
+                <tbody>
+                    {{range $svc, $n := .ChatUsage}}
+                    <tr><td><strong>{{$svc}}</strong></td><td>{{$n}}</td></tr>
+                    {{end}}
+                </tbody>
+            </table>
+            {{else}}
+            <p class="empty-state">No agent usage yet this month. Visit a service page to start.</p>
+            {{end}}
+        </section>
+
+        <section class="account-section">
+            <h2>API Keys <small class="muted-note">— for MCP servers & programmatic access</small></h2>
+            {{if .Entitlements}}
+            <table class="payments-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Key Status</th>
+                        <th>Created</th>
+                        <th>Last Used</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range .Entitlements}}
+                    <tr data-service="{{.ServiceKey}}">
+                        <td><strong>{{.ServiceKey}}</strong></td>
+                        <td><span class="key-state" data-state="unknown">checking…</span></td>
+                        <td class="key-created">—</td>
+                        <td class="key-used">—</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline key-btn" data-action="generate">Generate key</button>
+                        </td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+            <p class="muted-note">Connect AI tools via MCP at <code>mcp.<service>.katsironni.com</code> using
+                <code>Authorization: Bearer <your key></code>. Keys are shown once and can be regenerated anytime (old key stops working immediately).</p>
+            {{else}}
+            <p class="empty-state">API keys are issued per active subscription. <a href="/pricing">Subscribe to a service</a> first.</p>
+            {{end}}
+        </section>
+    </div>
+</section>
+{{end}}
+
+{{define "scripts"}}
+<script src="/static/js/keys.js"></script>
+{{end}}

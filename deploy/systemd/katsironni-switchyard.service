@@ -1,0 +1,21 @@
+[Unit]
+Description=Switchyard Cloud (hosted switchyard)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=katsironni
+Group=katsironni
+WorkingDirectory=/opt/katsironni/services/switchyard
+ExecStart=/opt/katsironni/bin/switchyard serve -addr 127.0.0.1:8102 -db /opt/katsironni/services/switchyard/data/switchyard.db
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/katsironni/services/switchyard/data
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

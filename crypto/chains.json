@@ -1,0 +1,23 @@
+{
+  "quote": {
+    "source": "https://api.coingecko.com/api/v3/simple/price",
+    "vs_currency": "cad",
+    "cache_seconds": 300,
+    "tolerance": 0.98
+  },
+  "chains": {
+    "ethereum":   { "asset": "ethereum",   "kind": "evm",     "rpc": "https://ethereum-rpc.publicnode.com",     "address": "0x85ee7E71f762d772599cbF1EC20E651B30657521", "confirmations": 5,  "coingecko_id": "ethereum" },
+    "linea":      { "asset": "ethereum",   "kind": "evm",     "rpc": "https://rpc.linea.build",                 "address": "0x85ee7E71f762d772599cbF1EC20E651B30657521", "confirmations": 5,  "coingecko_id": "ethereum" },
+    "base":       { "asset": "ethereum",   "kind": "evm",     "rpc": "https://base-rpc.publicnode.com",          "address": "0x85ee7E71f762d772599cbF1EC20E651B30657521", "confirmations": 5,  "coingecko_id": "ethereum" },
+    "bnb":        { "asset": "binancecoin","kind": "evm",     "rpc": "https://bsc-rpc.publicnode.com",          "address": "0x85ee7E71f762d772599cbF1EC20E651B30657521", "confirmations": 5,  "coingecko_id": "binancecoin" },
+    "polygon":    { "asset": "matic-network", "kind": "evm",  "rpc": "https://polygon-bor-rpc.publicnode.com",  "address": "0x85ee7E71f762d772599cbF1EC20E651B30657521", "confirmations": 5,  "coingecko_id": "matic-network" },
+    "optimism":   { "asset": "ethereum",   "kind": "evm",     "rpc": "https://optimism-rpc.publicnode.com",      "address": "0x85ee7E71f762d772599cbF1EC20E651B30657521", "confirmations": 5,  "coingecko_id": "ethereum" },
+    "arbitrum":   { "asset": "ethereum",   "kind": "evm",     "rpc": "https://arbitrum-rpc.publicnode.com",      "address": "0x85ee7E71f762d772599cbF1EC20E651B30657521", "confirmations": 5,  "coingecko_id": "ethereum" },
+    "monad":      { "asset": "monad",      "kind": "evm",     "rpc": "",                                       "address": "0x85ee7E71f762d772599cbF1EC20E651B30657521", "confirmations": 5,  "coingecko_id": "monad", "enabled": false, "note": "enable when a public mainnet RPC + price feed are published" },
+    "arc":        { "asset": "arc-blocks", "kind": "evm",     "rpc": "",                                       "address": "0x85ee7E71f762d772599cbF1EC20E651B30657521", "confirmations": 5,  "coingecko_id": "arc-blocks", "enabled": false, "note": "no public RPC confirmed yet; disabled until verified" },
+    "bitcoin":    { "asset": "bitcoin",    "kind": "btc",     "rpc": "https://mempool.space/api",               "address": "bc1qxe2zx5tv3hdreaej6s2x4p7han85uey828rrhg", "confirmations": 2,  "coingecko_id": "bitcoin" },
+    "solana":     { "asset": "solana",     "kind": "solana", "rpc": "https://api.mainnet-beta.solana.com",     "address": "4afnnpah1KYUF5T6mCfkdSo9guWcLQGvoEDnpqNZzfTw", "confirmations": "finalized", "coingecko_id": "solana" },
+    "tron":       { "asset": "tron",       "kind": "tron",    "rpc": "https://apilist.tronscanapi.com",         "address": "TCJMp9eMGDzSM8bDCPB7QDz3KxqiuvBrW9", "confirmations": 20, "coingecko_id": "tron" },
+    "stellar":    { "asset": "stellar",    "kind": "stellar","rpc": "https://horizon.stellar.org",              "address": "GDKGPEO7CC46IRV7EUUWMITA3VA4447OZTFLGXDVXEZPV7VB3F5M7VA4", "confirmations": 1, "coingecko_id": "stellar" }
+  }
+}

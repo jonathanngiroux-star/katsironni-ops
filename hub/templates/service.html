@@ -1,0 +1,73 @@
+{{define "title"}}{{.Product.Name}}{{end}}
+
+{{define "content"}}
+<section class="service-hero">
+    <div class="container">
+        <div class="service-hero-inner">
+            <div class="service-hero-text">
+                <span class="service-icon">{{.Page.Icon}}</span>
+                <h1>{{.Product.Name}}</h1>
+                <p class="service-tagline">{{.Page.Tagline}}</p>
+                <p class="service-explain">{{.Page.Explain}}</p>
+                <div class="service-pricing-line">
+                    {{if .Product.OnetimeCents}}
+                    from <strong>${{cad .Product.MonthlyCents}}/mo</strong> · ${{cad .Product.AnnualCents}}/yr · or ${{cad .Product.OnetimeCents}} once
+                    {{else}}
+                    from <strong>${{cad .Product.MonthlyCents}}/mo</strong> · ${{cad .Product.AnnualCents}}/yr
+                    {{end}}
+                </div>
+                <div class="service-cta">
+                    {{if .Subscribed}}
+                    <span class="status-badge status-active">✓ Active subscription</span>
+                    {{else if .Product.Live}}
+                    <a class="btn btn-primary btn-lg" href="https://katsironni.com/p/{{.Product.Key}}">Subscribe</a>
+                    <span class="muted-note">or try the chat free — 2 messages, no card</span>
+                    {{else}}
+                    <span class="status-badge">🚧 Deploying — founding subscribers can pre-order:</span>
+                    <a class="btn btn-outline" href="https://katsironni.com/pricing">See pricing</a>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="chat-section">
+    <div class="container">
+        <div class="chat-shell" data-service="{{.Product.Key}}">
+            <div class="chat-header">
+                <h2>{{.Page.Icon}} {{.Product.Name}} agent</h2>
+                <span class="chat-status" id="chatStatus">connecting…</span>
+            </div>
+            <div class="chat-log" id="chatLog">
+                <div class="chat-empty">
+                    <p>Talk to the agent to run this service. Attach files, ask for analysis, request reports.</p>
+                </div>
+            </div>
+            <div class="chat-quick" id="chatQuick">
+                {{range .Page.QuickActions}}
+                <button class="btn btn-sm btn-outline chat-quick-btn">{{.}}</button>
+                {{end}}
+            </div>
+            <form class="chat-input" id="chatForm">
+                <div class="chat-attach" id="chatDrop">
+                    <input type="file" id="chatFile" multiple hidden>
+                    <button type="button" class="btn btn-ghost btn-sm" id="chatFileBtn" title="Attach files">📎</button>
+                    <div id="chatFiles" class="chat-files"></div>
+                </div>
+                <textarea id="chatText" rows="1" placeholder="Message the agent… (Enter to send, Shift+Enter for newline)"></textarea>
+                <button type="submit" class="btn btn-primary" id="chatSend">Send</button>
+            </form>
+            <div class="chat-subscribe-prompt hidden" id="chatSubPrompt">
+                <p>🎨 That's your free preview. Subscribe to keep the agent working for you.</p>
+                <a class="btn btn-primary" href="https://katsironni.com/p/{{.Product.Key}}">See plans →</a>
+            </div>
+        </div>
+    </div>
+</section>
+{{end}}
+
+{{define "scripts"}}
+<script src="/static/js/marked.min.js"></script>
+<script src="/static/js/chat.js"></script>
+{{end}}

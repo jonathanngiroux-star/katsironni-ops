@@ -1,0 +1,842 @@
+{
+  "account": "acct_1UTjkv1DZgaA6oBE",
+  "livemode": true,
+  "currency": "cad",
+  "products": [
+    {
+      "key": "agentops",
+      "name": "Agent Ops Retainer",
+      "id": "prod_VVnMHKOpdgvy4W"
+    },
+    {
+      "key": "contractaudit",
+      "name": "Smart Contract Continuous Audit",
+      "id": "prod_VVnNkfn7tmnfKW"
+    },
+    {
+      "key": "walletguard",
+      "name": "Wallet Security Monitoring",
+      "id": "prod_VVnNdm2BWryIFM"
+    },
+    {
+      "key": "nodeops",
+      "name": "Infra Node Monitoring",
+      "id": "prod_VVnNrdikvPQKGB"
+    },
+    {
+      "key": "complianceflow",
+      "name": "Compliance Automation Retainer",
+      "id": "prod_VVnNLMdjkr9lKx"
+    },
+    {
+      "key": "taxfile",
+      "name": "Tax Filing Automation",
+      "id": "prod_VVnNTTGSAvetKG"
+    },
+    {
+      "key": "mcpretainer",
+      "name": "Custom MCP Server Retainer",
+      "id": "prod_VVnNNfQ082jxCD"
+    },
+    {
+      "key": "agentbench",
+      "name": "Agent Evaluation Benchmark",
+      "id": "prod_VVnNbi7efJpMjB"
+    },
+    {
+      "key": "tokenomics",
+      "name": "Tokenomics Modeling",
+      "id": "prod_VVnNntFvC37waw"
+    },
+    {
+      "key": "whitepaper",
+      "name": "Whitepaper Drafting Retainer",
+      "id": "prod_VVnN1hizkbPGnO"
+    },
+    {
+      "key": "techdocs",
+      "name": "Technical Documentation Subscription",
+      "id": "prod_VVnNyjJAh2bhyL"
+    },
+    {
+      "key": "regresearch",
+      "name": "Regulatory Research Subscription",
+      "id": "prod_VVnNeac4M5pWcu"
+    },
+    {
+      "key": "datasetcur",
+      "name": "Dataset Curation Retainer",
+      "id": "prod_VVnNJe61V8ydx6"
+    },
+    {
+      "key": "finetune",
+      "name": "Fine-tuning Subscription",
+      "id": "prod_VVnNacCM34bomb"
+    },
+    {
+      "key": "daogov",
+      "name": "DAO Governance Tooling",
+      "id": "prod_VVnNfauUpHUimP"
+    },
+    {
+      "key": "tokenlaunch",
+      "name": "Token Launch Support Retainer",
+      "id": "prod_VVnNtoQE83iIfp"
+    },
+    {
+      "key": "meshops",
+      "name": "WireGuard Mesh Network Management",
+      "id": "prod_VVnNQJIR4LFFb5"
+    },
+    {
+      "key": "keymgmt",
+      "name": "Key Management Consulting",
+      "id": "prod_VVnNl7aMHnnamx"
+    },
+    {
+      "key": "emailops",
+      "name": "Email Delivery Optimization",
+      "id": "prod_VVnNDP3lVyCMI0"
+    },
+    {
+      "key": "flagstrategy",
+      "name": "Feature Flag Strategy",
+      "id": "prod_VVnNN06XFKwUIS"
+    },
+    {
+      "key": "airdroppremium",
+      "name": "Airdrop Intel Premium",
+      "id": "prod_VVnNi0c5lmsM1I"
+    },
+    {
+      "key": "vpsops",
+      "name": "VPS Hosting Retainer",
+      "id": "prod_VVnNvGQl8l5VBJ"
+    },
+    {
+      "key": "certaintystack",
+      "name": "Certainty Stack",
+      "id": "prod_VVnNfPs5f29hAa"
+    },
+    {
+      "key": "mirofish",
+      "name": "MiroFish Market Intelligence",
+      "id": "prod_VVq69OvFS0cS7Z"
+    },
+    {
+      "key": "mirofish-abtest",
+      "name": "MiroFish A/B Messaging Test",
+      "id": "prod_VVq6h2uyW3Xps5"
+    }
+  ],
+  "prices": [
+    {
+      "key": "agentops",
+      "interval": "month",
+      "unit_amount": 9900,
+      "currency": "cad",
+      "id": "price_1UUlmJ1DZgaA6oBE2OCiwfct",
+      "product_id": "prod_VVnMHKOpdgvy4W",
+      "lookup_key": "agentops-month",
+      "recurring": true
+    },
+    {
+      "key": "agentops",
+      "interval": "year",
+      "unit_amount": 99000,
+      "currency": "cad",
+      "id": "price_1UUlmJ1DZgaA6oBEvwPLH8hv",
+      "product_id": "prod_VVnMHKOpdgvy4W",
+      "lookup_key": "agentops-year",
+      "recurring": true
+    },
+    {
+      "key": "agentops",
+      "interval": "onetime",
+      "unit_amount": 29700,
+      "currency": "cad",
+      "id": "price_1UUlmK1DZgaA6oBEpymMKYkz",
+      "product_id": "prod_VVnMHKOpdgvy4W",
+      "lookup_key": "agentops-onetime",
+      "recurring": false
+    },
+    {
+      "key": "contractaudit",
+      "interval": "month",
+      "unit_amount": 25000,
+      "currency": "cad",
+      "id": "price_1UUlmK1DZgaA6oBE5AsmoX9Y",
+      "product_id": "prod_VVnNkfn7tmnfKW",
+      "lookup_key": "contractaudit-month",
+      "recurring": true
+    },
+    {
+      "key": "contractaudit",
+      "interval": "year",
+      "unit_amount": 250000,
+      "currency": "cad",
+      "id": "price_1UUlmK1DZgaA6oBENITK5Cy1",
+      "product_id": "prod_VVnNkfn7tmnfKW",
+      "lookup_key": "contractaudit-year",
+      "recurring": true
+    },
+    {
+      "key": "contractaudit",
+      "interval": "onetime",
+      "unit_amount": 75000,
+      "currency": "cad",
+      "id": "price_1UUlmK1DZgaA6oBEnujquiLs",
+      "product_id": "prod_VVnNkfn7tmnfKW",
+      "lookup_key": "contractaudit-onetime",
+      "recurring": false
+    },
+    {
+      "key": "walletguard",
+      "interval": "month",
+      "unit_amount": 4900,
+      "currency": "cad",
+      "id": "price_1UUlmK1DZgaA6oBEFvtOH6R2",
+      "product_id": "prod_VVnNdm2BWryIFM",
+      "lookup_key": "walletguard-month",
+      "recurring": true
+    },
+    {
+      "key": "walletguard",
+      "interval": "year",
+      "unit_amount": 49000,
+      "currency": "cad",
+      "id": "price_1UUlmK1DZgaA6oBEnRuQ6Dbo",
+      "product_id": "prod_VVnNdm2BWryIFM",
+      "lookup_key": "walletguard-year",
+      "recurring": true
+    },
+    {
+      "key": "walletguard",
+      "interval": "onetime",
+      "unit_amount": 14700,
+      "currency": "cad",
+      "id": "price_1UUlmL1DZgaA6oBEhruxw5Yz",
+      "product_id": "prod_VVnNdm2BWryIFM",
+      "lookup_key": "walletguard-onetime",
+      "recurring": false
+    },
+    {
+      "key": "nodeops",
+      "interval": "month",
+      "unit_amount": 10000,
+      "currency": "cad",
+      "id": "price_1UUlmL1DZgaA6oBEMSmewJzt",
+      "product_id": "prod_VVnNrdikvPQKGB",
+      "lookup_key": "nodeops-month",
+      "recurring": true
+    },
+    {
+      "key": "nodeops",
+      "interval": "year",
+      "unit_amount": 100000,
+      "currency": "cad",
+      "id": "price_1UUlmL1DZgaA6oBEzIFsU0UC",
+      "product_id": "prod_VVnNrdikvPQKGB",
+      "lookup_key": "nodeops-year",
+      "recurring": true
+    },
+    {
+      "key": "nodeops",
+      "interval": "onetime",
+      "unit_amount": 30000,
+      "currency": "cad",
+      "id": "price_1UUlmL1DZgaA6oBE5zBEYtOV",
+      "product_id": "prod_VVnNrdikvPQKGB",
+      "lookup_key": "nodeops-onetime",
+      "recurring": false
+    },
+    {
+      "key": "complianceflow",
+      "interval": "month",
+      "unit_amount": 20000,
+      "currency": "cad",
+      "id": "price_1UUlmL1DZgaA6oBEN1Rhk5np",
+      "product_id": "prod_VVnNLMdjkr9lKx",
+      "lookup_key": "complianceflow-month",
+      "recurring": true
+    },
+    {
+      "key": "complianceflow",
+      "interval": "year",
+      "unit_amount": 200000,
+      "currency": "cad",
+      "id": "price_1UUlmL1DZgaA6oBEwqMRWST2",
+      "product_id": "prod_VVnNLMdjkr9lKx",
+      "lookup_key": "complianceflow-year",
+      "recurring": true
+    },
+    {
+      "key": "complianceflow",
+      "interval": "onetime",
+      "unit_amount": 60000,
+      "currency": "cad",
+      "id": "price_1UUlmM1DZgaA6oBEdAxP330o",
+      "product_id": "prod_VVnNLMdjkr9lKx",
+      "lookup_key": "complianceflow-onetime",
+      "recurring": false
+    },
+    {
+      "key": "taxfile",
+      "interval": "month",
+      "unit_amount": 9900,
+      "currency": "cad",
+      "id": "price_1UUlmM1DZgaA6oBEYAOFT602",
+      "product_id": "prod_VVnNTTGSAvetKG",
+      "lookup_key": "taxfile-month",
+      "recurring": true
+    },
+    {
+      "key": "taxfile",
+      "interval": "year",
+      "unit_amount": 99000,
+      "currency": "cad",
+      "id": "price_1UUlmM1DZgaA6oBEkxfzu86M",
+      "product_id": "prod_VVnNTTGSAvetKG",
+      "lookup_key": "taxfile-year",
+      "recurring": true
+    },
+    {
+      "key": "taxfile",
+      "interval": "onetime",
+      "unit_amount": 29700,
+      "currency": "cad",
+      "id": "price_1UUlmM1DZgaA6oBEmknkwQcD",
+      "product_id": "prod_VVnNTTGSAvetKG",
+      "lookup_key": "taxfile-onetime",
+      "recurring": false
+    },
+    {
+      "key": "mcpretainer",
+      "interval": "month",
+      "unit_amount": 15000,
+      "currency": "cad",
+      "id": "price_1UUlmM1DZgaA6oBE6EogrKYW",
+      "product_id": "prod_VVnNNfQ082jxCD",
+      "lookup_key": "mcpretainer-month",
+      "recurring": true
+    },
+    {
+      "key": "mcpretainer",
+      "interval": "year",
+      "unit_amount": 150000,
+      "currency": "cad",
+      "id": "price_1UUlmM1DZgaA6oBEGH43qHdE",
+      "product_id": "prod_VVnNNfQ082jxCD",
+      "lookup_key": "mcpretainer-year",
+      "recurring": true
+    },
+    {
+      "key": "mcpretainer",
+      "interval": "onetime",
+      "unit_amount": 45000,
+      "currency": "cad",
+      "id": "price_1UUlmN1DZgaA6oBErKUfXTci",
+      "product_id": "prod_VVnNNfQ082jxCD",
+      "lookup_key": "mcpretainer-onetime",
+      "recurring": false
+    },
+    {
+      "key": "agentbench",
+      "interval": "month",
+      "unit_amount": 5900,
+      "currency": "cad",
+      "id": "price_1UUlmN1DZgaA6oBE9dYMWF97",
+      "product_id": "prod_VVnNbi7efJpMjB",
+      "lookup_key": "agentbench-month",
+      "recurring": true
+    },
+    {
+      "key": "agentbench",
+      "interval": "year",
+      "unit_amount": 59000,
+      "currency": "cad",
+      "id": "price_1UUlmN1DZgaA6oBE8fsYZXvO",
+      "product_id": "prod_VVnNbi7efJpMjB",
+      "lookup_key": "agentbench-year",
+      "recurring": true
+    },
+    {
+      "key": "agentbench",
+      "interval": "onetime",
+      "unit_amount": 17700,
+      "currency": "cad",
+      "id": "price_1UUlmN1DZgaA6oBEZYfG2C3l",
+      "product_id": "prod_VVnNbi7efJpMjB",
+      "lookup_key": "agentbench-onetime",
+      "recurring": false
+    },
+    {
+      "key": "tokenomics",
+      "interval": "month",
+      "unit_amount": 20000,
+      "currency": "cad",
+      "id": "price_1UUlmN1DZgaA6oBEFs1STkEA",
+      "product_id": "prod_VVnNntFvC37waw",
+      "lookup_key": "tokenomics-month",
+      "recurring": true
+    },
+    {
+      "key": "tokenomics",
+      "interval": "year",
+      "unit_amount": 200000,
+      "currency": "cad",
+      "id": "price_1UUlmN1DZgaA6oBEiwbmajrq",
+      "product_id": "prod_VVnNntFvC37waw",
+      "lookup_key": "tokenomics-year",
+      "recurring": true
+    },
+    {
+      "key": "tokenomics",
+      "interval": "onetime",
+      "unit_amount": 60000,
+      "currency": "cad",
+      "id": "price_1UUlmO1DZgaA6oBEgX9qPHub",
+      "product_id": "prod_VVnNntFvC37waw",
+      "lookup_key": "tokenomics-onetime",
+      "recurring": false
+    },
+    {
+      "key": "whitepaper",
+      "interval": "month",
+      "unit_amount": 30000,
+      "currency": "cad",
+      "id": "price_1UUlmO1DZgaA6oBE5CaffhtT",
+      "product_id": "prod_VVnN1hizkbPGnO",
+      "lookup_key": "whitepaper-month",
+      "recurring": true
+    },
+    {
+      "key": "whitepaper",
+      "interval": "year",
+      "unit_amount": 300000,
+      "currency": "cad",
+      "id": "price_1UUlmO1DZgaA6oBEtTzKfDin",
+      "product_id": "prod_VVnN1hizkbPGnO",
+      "lookup_key": "whitepaper-year",
+      "recurring": true
+    },
+    {
+      "key": "whitepaper",
+      "interval": "onetime",
+      "unit_amount": 90000,
+      "currency": "cad",
+      "id": "price_1UUlmO1DZgaA6oBExwB9ZmYw",
+      "product_id": "prod_VVnN1hizkbPGnO",
+      "lookup_key": "whitepaper-onetime",
+      "recurring": false
+    },
+    {
+      "key": "techdocs",
+      "interval": "month",
+      "unit_amount": 15000,
+      "currency": "cad",
+      "id": "price_1UUlmO1DZgaA6oBEpq9eIkK4",
+      "product_id": "prod_VVnNyjJAh2bhyL",
+      "lookup_key": "techdocs-month",
+      "recurring": true
+    },
+    {
+      "key": "techdocs",
+      "interval": "year",
+      "unit_amount": 150000,
+      "currency": "cad",
+      "id": "price_1UUlmO1DZgaA6oBEp3FGE9JP",
+      "product_id": "prod_VVnNyjJAh2bhyL",
+      "lookup_key": "techdocs-year",
+      "recurring": true
+    },
+    {
+      "key": "techdocs",
+      "interval": "onetime",
+      "unit_amount": 45000,
+      "currency": "cad",
+      "id": "price_1UUlmP1DZgaA6oBEOrqTYdjQ",
+      "product_id": "prod_VVnNyjJAh2bhyL",
+      "lookup_key": "techdocs-onetime",
+      "recurring": false
+    },
+    {
+      "key": "regresearch",
+      "interval": "month",
+      "unit_amount": 20000,
+      "currency": "cad",
+      "id": "price_1UUlmP1DZgaA6oBEnW3Q1AWf",
+      "product_id": "prod_VVnNeac4M5pWcu",
+      "lookup_key": "regresearch-month",
+      "recurring": true
+    },
+    {
+      "key": "regresearch",
+      "interval": "year",
+      "unit_amount": 200000,
+      "currency": "cad",
+      "id": "price_1UUlmP1DZgaA6oBELEjSl5na",
+      "product_id": "prod_VVnNeac4M5pWcu",
+      "lookup_key": "regresearch-year",
+      "recurring": true
+    },
+    {
+      "key": "regresearch",
+      "interval": "onetime",
+      "unit_amount": 60000,
+      "currency": "cad",
+      "id": "price_1UUlmP1DZgaA6oBE1ModmKhp",
+      "product_id": "prod_VVnNeac4M5pWcu",
+      "lookup_key": "regresearch-onetime",
+      "recurring": false
+    },
+    {
+      "key": "datasetcur",
+      "interval": "month",
+      "unit_amount": 15000,
+      "currency": "cad",
+      "id": "price_1UUlmP1DZgaA6oBEszBRW7bN",
+      "product_id": "prod_VVnNJe61V8ydx6",
+      "lookup_key": "datasetcur-month",
+      "recurring": true
+    },
+    {
+      "key": "datasetcur",
+      "interval": "year",
+      "unit_amount": 150000,
+      "currency": "cad",
+      "id": "price_1UUlmP1DZgaA6oBEEGWEpUH8",
+      "product_id": "prod_VVnNJe61V8ydx6",
+      "lookup_key": "datasetcur-year",
+      "recurring": true
+    },
+    {
+      "key": "datasetcur",
+      "interval": "onetime",
+      "unit_amount": 45000,
+      "currency": "cad",
+      "id": "price_1UUlmQ1DZgaA6oBEbly5DId2",
+      "product_id": "prod_VVnNJe61V8ydx6",
+      "lookup_key": "datasetcur-onetime",
+      "recurring": false
+    },
+    {
+      "key": "finetune",
+      "interval": "month",
+      "unit_amount": 25000,
+      "currency": "cad",
+      "id": "price_1UUlmQ1DZgaA6oBEdMftJzNe",
+      "product_id": "prod_VVnNacCM34bomb",
+      "lookup_key": "finetune-month",
+      "recurring": true
+    },
+    {
+      "key": "finetune",
+      "interval": "year",
+      "unit_amount": 250000,
+      "currency": "cad",
+      "id": "price_1UUlmQ1DZgaA6oBE2Q33lDpo",
+      "product_id": "prod_VVnNacCM34bomb",
+      "lookup_key": "finetune-year",
+      "recurring": true
+    },
+    {
+      "key": "finetune",
+      "interval": "onetime",
+      "unit_amount": 75000,
+      "currency": "cad",
+      "id": "price_1UUlmQ1DZgaA6oBEzY2obIi1",
+      "product_id": "prod_VVnNacCM34bomb",
+      "lookup_key": "finetune-onetime",
+      "recurring": false
+    },
+    {
+      "key": "daogov",
+      "interval": "month",
+      "unit_amount": 15000,
+      "currency": "cad",
+      "id": "price_1UUlmQ1DZgaA6oBEYzmVfZhG",
+      "product_id": "prod_VVnNfauUpHUimP",
+      "lookup_key": "daogov-month",
+      "recurring": true
+    },
+    {
+      "key": "daogov",
+      "interval": "year",
+      "unit_amount": 150000,
+      "currency": "cad",
+      "id": "price_1UUlmQ1DZgaA6oBEUOFKoVWh",
+      "product_id": "prod_VVnNfauUpHUimP",
+      "lookup_key": "daogov-year",
+      "recurring": true
+    },
+    {
+      "key": "daogov",
+      "interval": "onetime",
+      "unit_amount": 45000,
+      "currency": "cad",
+      "id": "price_1UUlmQ1DZgaA6oBEFBl2Vdko",
+      "product_id": "prod_VVnNfauUpHUimP",
+      "lookup_key": "daogov-onetime",
+      "recurring": false
+    },
+    {
+      "key": "tokenlaunch",
+      "interval": "month",
+      "unit_amount": 35000,
+      "currency": "cad",
+      "id": "price_1UUlmR1DZgaA6oBE0lWb05KF",
+      "product_id": "prod_VVnNtoQE83iIfp",
+      "lookup_key": "tokenlaunch-month",
+      "recurring": true
+    },
+    {
+      "key": "tokenlaunch",
+      "interval": "year",
+      "unit_amount": 350000,
+      "currency": "cad",
+      "id": "price_1UUlmR1DZgaA6oBEzoPWxAVX",
+      "product_id": "prod_VVnNtoQE83iIfp",
+      "lookup_key": "tokenlaunch-year",
+      "recurring": true
+    },
+    {
+      "key": "tokenlaunch",
+      "interval": "onetime",
+      "unit_amount": 105000,
+      "currency": "cad",
+      "id": "price_1UUlmR1DZgaA6oBEVsOCywuH",
+      "product_id": "prod_VVnNtoQE83iIfp",
+      "lookup_key": "tokenlaunch-onetime",
+      "recurring": false
+    },
+    {
+      "key": "meshops",
+      "interval": "month",
+      "unit_amount": 9900,
+      "currency": "cad",
+      "id": "price_1UUlmR1DZgaA6oBEXRvZ1YoB",
+      "product_id": "prod_VVnNQJIR4LFFb5",
+      "lookup_key": "meshops-month",
+      "recurring": true
+    },
+    {
+      "key": "meshops",
+      "interval": "year",
+      "unit_amount": 99000,
+      "currency": "cad",
+      "id": "price_1UUlmR1DZgaA6oBEaggKdZUi",
+      "product_id": "prod_VVnNQJIR4LFFb5",
+      "lookup_key": "meshops-year",
+      "recurring": true
+    },
+    {
+      "key": "meshops",
+      "interval": "onetime",
+      "unit_amount": 29700,
+      "currency": "cad",
+      "id": "price_1UUlmR1DZgaA6oBETXooBY4B",
+      "product_id": "prod_VVnNQJIR4LFFb5",
+      "lookup_key": "meshops-onetime",
+      "recurring": false
+    },
+    {
+      "key": "keymgmt",
+      "interval": "month",
+      "unit_amount": 19900,
+      "currency": "cad",
+      "id": "price_1UUlmS1DZgaA6oBEo79uCxV6",
+      "product_id": "prod_VVnNl7aMHnnamx",
+      "lookup_key": "keymgmt-month",
+      "recurring": true
+    },
+    {
+      "key": "keymgmt",
+      "interval": "year",
+      "unit_amount": 199000,
+      "currency": "cad",
+      "id": "price_1UUlmS1DZgaA6oBEK2iRfSWG",
+      "product_id": "prod_VVnNl7aMHnnamx",
+      "lookup_key": "keymgmt-year",
+      "recurring": true
+    },
+    {
+      "key": "keymgmt",
+      "interval": "onetime",
+      "unit_amount": 59700,
+      "currency": "cad",
+      "id": "price_1UUlmS1DZgaA6oBESLGU9Og1",
+      "product_id": "prod_VVnNl7aMHnnamx",
+      "lookup_key": "keymgmt-onetime",
+      "recurring": false
+    },
+    {
+      "key": "emailops",
+      "interval": "month",
+      "unit_amount": 9900,
+      "currency": "cad",
+      "id": "price_1UUlmS1DZgaA6oBE9Z4qArAP",
+      "product_id": "prod_VVnNDP3lVyCMI0",
+      "lookup_key": "emailops-month",
+      "recurring": true
+    },
+    {
+      "key": "emailops",
+      "interval": "year",
+      "unit_amount": 99000,
+      "currency": "cad",
+      "id": "price_1UUlmS1DZgaA6oBEaikh0t6i",
+      "product_id": "prod_VVnNDP3lVyCMI0",
+      "lookup_key": "emailops-year",
+      "recurring": true
+    },
+    {
+      "key": "emailops",
+      "interval": "onetime",
+      "unit_amount": 29700,
+      "currency": "cad",
+      "id": "price_1UUlmS1DZgaA6oBEvxfQgIk6",
+      "product_id": "prod_VVnNDP3lVyCMI0",
+      "lookup_key": "emailops-onetime",
+      "recurring": false
+    },
+    {
+      "key": "flagstrategy",
+      "interval": "month",
+      "unit_amount": 9900,
+      "currency": "cad",
+      "id": "price_1UUlmT1DZgaA6oBESRIDi9IA",
+      "product_id": "prod_VVnNN06XFKwUIS",
+      "lookup_key": "flagstrategy-month",
+      "recurring": true
+    },
+    {
+      "key": "flagstrategy",
+      "interval": "year",
+      "unit_amount": 99000,
+      "currency": "cad",
+      "id": "price_1UUlmT1DZgaA6oBEaGUQhX3O",
+      "product_id": "prod_VVnNN06XFKwUIS",
+      "lookup_key": "flagstrategy-year",
+      "recurring": true
+    },
+    {
+      "key": "flagstrategy",
+      "interval": "onetime",
+      "unit_amount": 29700,
+      "currency": "cad",
+      "id": "price_1UUlmT1DZgaA6oBEc1pJR6iM",
+      "product_id": "prod_VVnNN06XFKwUIS",
+      "lookup_key": "flagstrategy-onetime",
+      "recurring": false
+    },
+    {
+      "key": "airdroppremium",
+      "interval": "month",
+      "unit_amount": 2900,
+      "currency": "cad",
+      "id": "price_1UUlmT1DZgaA6oBEN0cCTvds",
+      "product_id": "prod_VVnNi0c5lmsM1I",
+      "lookup_key": "airdroppremium-month",
+      "recurring": true
+    },
+    {
+      "key": "airdroppremium",
+      "interval": "year",
+      "unit_amount": 29000,
+      "currency": "cad",
+      "id": "price_1UUlmT1DZgaA6oBE0lEivavD",
+      "product_id": "prod_VVnNi0c5lmsM1I",
+      "lookup_key": "airdroppremium-year",
+      "recurring": true
+    },
+    {
+      "key": "airdroppremium",
+      "interval": "onetime",
+      "unit_amount": 8700,
+      "currency": "cad",
+      "id": "price_1UUlmT1DZgaA6oBESACncbCd",
+      "product_id": "prod_VVnNi0c5lmsM1I",
+      "lookup_key": "airdroppremium-onetime",
+      "recurring": false
+    },
+    {
+      "key": "vpsops",
+      "interval": "month",
+      "unit_amount": 4900,
+      "currency": "cad",
+      "id": "price_1UUlmU1DZgaA6oBEAUS7hGQk",
+      "product_id": "prod_VVnNvGQl8l5VBJ",
+      "lookup_key": "vpsops-month",
+      "recurring": true
+    },
+    {
+      "key": "vpsops",
+      "interval": "year",
+      "unit_amount": 49000,
+      "currency": "cad",
+      "id": "price_1UUlmU1DZgaA6oBEDmRpoeIz",
+      "product_id": "prod_VVnNvGQl8l5VBJ",
+      "lookup_key": "vpsops-year",
+      "recurring": true
+    },
+    {
+      "key": "vpsops",
+      "interval": "onetime",
+      "unit_amount": 14700,
+      "currency": "cad",
+      "id": "price_1UUlmU1DZgaA6oBElNvjce30",
+      "product_id": "prod_VVnNvGQl8l5VBJ",
+      "lookup_key": "vpsops-onetime",
+      "recurring": false
+    },
+    {
+      "key": "certaintystack",
+      "interval": "month",
+      "unit_amount": 19900,
+      "currency": "cad",
+      "id": "price_1UUlmU1DZgaA6oBExeGFUgNa",
+      "product_id": "prod_VVnNfPs5f29hAa",
+      "lookup_key": "certaintystack-month",
+      "recurring": true
+    },
+    {
+      "key": "certaintystack",
+      "interval": "year",
+      "unit_amount": 199000,
+      "currency": "cad",
+      "id": "price_1UUlmU1DZgaA6oBE4LxcSc96",
+      "product_id": "prod_VVnNfPs5f29hAa",
+      "lookup_key": "certaintystack-year",
+      "recurring": true
+    },
+    {
+      "key": "mirofish",
+      "interval": "month",
+      "unit_amount": 19900,
+      "id": "price_1UUoQI1DZgaA6oBEv1M5ucSF",
+      "recurring": true
+    },
+    {
+      "key": "mirofish",
+      "interval": "year",
+      "unit_amount": 199000,
+      "id": "price_1UUoQI1DZgaA6oBElEHJgIoL",
+      "recurring": true
+    },
+    {
+      "key": "mirofish",
+      "interval": "onetime",
+      "unit_amount": 24900,
+      "id": "price_1UUoQI1DZgaA6oBEUJjuvsMy",
+      "recurring": false
+    },
+    {
+      "key": "mirofish-abtest",
+      "interval": "onetime",
+      "unit_amount": 39900,
+      "id": "price_1UUoQI1DZgaA6oBE8Xm8La2Z",
+      "recurring": false
+    }
+  ]
+}

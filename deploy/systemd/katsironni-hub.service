@@ -1,0 +1,22 @@
+[Unit]
+Description=Katsironni Hub (katsironni.com SaaS backend)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=katsironni
+Group=katsironni
+WorkingDirectory=/opt/katsironni
+EnvironmentFile=/opt/katsironni/.env
+ExecStart=/opt/katsironni/bin/katsironni-hub
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/katsironni/data /opt/katsironni/web
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

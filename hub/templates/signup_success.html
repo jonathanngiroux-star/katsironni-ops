@@ -1,0 +1,15 @@
+{{define "title"}}Check Your Email{{end}}
+
+{{define "content"}}
+<section class="auth-page">
+    <div class="container">
+        <div class="auth-card success-card">
+            <div class="success-icon">✓</div>
+            <h1>Check Your Email</h1>
+            <p>We've sent a verification link to <strong>{{.Email}}</strong></p>
+            <p>Click the link in the email to verify your account. The link expires in 24 hours.</p>
+            <p>Didn't receive it? Check your spam folder or <a href="/signup">try again</a>.</p>
+        </div>
+    </div>
+</section>
+{{end}}
